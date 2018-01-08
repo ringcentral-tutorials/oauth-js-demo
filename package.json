@@ -1,0 +1,19 @@
+{
+  "name": "oauth-js-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demeo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ringcentral-tutorials/oauth-js-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ringcentral-tutorials/oauth-js-demo/issues"
+  },
+  "homepage": "https://github.com/ringcentral-tutorials/oauth-js-demo#readme"
+}
