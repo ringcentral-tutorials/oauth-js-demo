@@ -19,15 +19,17 @@ var OAuthCode = function(rcsdk, config) {
         this.loginPopupUri(authUri, this.config['RC_APP_REDIRECT_URL']);
     }
     this.loginPopupUri  = function(authUri, redirectUri) {
+        console.log('Open login popup window', authUri);
         var win         = window.open(authUri, 'windowname1', 'width=800, height=600'); 
 
         var pollOAuth   = window.setInterval(function() { 
             try {
-                console.log(win.document.URL);
-                if (win.document.URL.indexOf(redirectUri) != -1) {
+                var callbackUrl = win.document.URL
+                console.log(callbackUrl);
+                if (callbackUrl.indexOf(redirectUri) != -1) {
                     window.clearInterval(pollOAuth);
 
-                    var qs = rcsdk.platform().parseAuthRedirectUrl(win.document.URL);
+                    var qs = rcsdk.platform().parseAuthRedirectUrl(callbackUrl);
                     qs.redirectUri = redirectUri;
 
                     if ('code' in qs) {
@@ -50,7 +52,7 @@ var OAuthCode = function(rcsdk, config) {
                 console.log(e);
                 //win.close();
             }
-        }, 100);
+        }, 500);
     }
 }
 
