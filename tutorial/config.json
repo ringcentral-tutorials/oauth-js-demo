@@ -1,0 +1,6 @@
+{
+    "title": "Learn RingCentral OAuth in JavaScript",
+    "repo": "ringcentral-tutorials/oauth-js-demo",
+    "description": "A step by step tutorial to get you started with RingCentral OAuth in JavaScript",
+    "heroku": false
+}
