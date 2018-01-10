@@ -58,8 +58,8 @@ var OAuthCode = function(rcsdk, config) {
 
 var rcsdk = new RingCentral.SDK({
     server: config['RC_APP_SERVER_URL'],
-    appKey: config['RC_APP_KEY'],
-    appSecret: config['RC_APP_SECRET']
+    appKey: config['RC_CLIENT_ID'],
+    appSecret: config['RC_CLIENT_SECRET']
 });
 
 var oauth = new OAuthCode(rcsdk, config);
