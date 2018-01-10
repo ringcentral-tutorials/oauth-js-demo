@@ -16,7 +16,7 @@ $ sh bower_install.sh
 
 ## Configuration
 
-Edit the `./public/config.js` file to configure your application key, application secret and redirect URL, etc.
+Edit the `./public/config.js` file to configure your client ID, client secret and redirect URL, etc.
 
 ```bash
 $ cd ./public
