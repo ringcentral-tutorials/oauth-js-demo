@@ -10,7 +10,7 @@ This is a quick 3-legged OAuth demo that runs using client-side JavaScript with 
 *Note*, please make sure `bower` is installed.
 
 ```bash
-$ $ git clone https://github.com/ringcentral-tutorials/oauth-js-demo
+$ git clone https://github.com/ringcentral-tutorials/oauth-js-demo
 $ cd oauth-js-demo
 $ bower install ringcentral#~3.x --save
 ```
