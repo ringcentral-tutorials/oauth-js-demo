@@ -37,6 +37,7 @@ Serve the static page with a static web server such as `http-server`. You can in
 
 ```bash
 $ npm install -g http-server
+```
 
 Start `http-server` from the `public` folder using:
 
