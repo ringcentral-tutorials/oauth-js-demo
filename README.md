@@ -11,7 +11,7 @@ This is a quick 3-legged OAuth demo that runs using client-side JavaScript with 
 
 ```bash
 $ cd {project_dir}
-$ sh bower_install.sh 
+$ bower install ringcentral#~3.x --save
 ```
 
 ## Configuration
