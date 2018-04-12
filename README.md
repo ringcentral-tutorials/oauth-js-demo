@@ -33,11 +33,15 @@ http://localhost:8080/oauth2callback.html
 
 ## Usage
 
-Serve the static page with `http-server`:
+Serve the static page with a static web server such as `http-server`. You can install it using the following:
 
 ```bash
 $ npm install -g http-server
-$ http-server public
+
+Start `http-server` from the `public` folder using:
+
+```bash
+$ http-server .
 ```
 
 You can also serve the static pages with **nginx** or **apache** as you like.
