@@ -4,19 +4,19 @@
         <meta charset="UTF-8">
         <script src="/config.js"></script>
 
-        <script src="/components/es6-promise/promise.min.js"></script>
+        <script src="/components/es6-promise/es6-promise.min.js"></script>
         <script src="/components/fetch/fetch.js"></script>
-        <script src="/components/pubnub/web/pubnub.min.js"></script>
+        <script src="/components/pubnub/dist/web/pubnub.min.js"></script>
         <script src="/components/ringcentral/build/ringcentral.min.js"></script>
         <script>
 
 var OAuthCode = function(rcsdk, config) {
     this.config = config;
     this.loginPopup  = function() {
-        var authUri = rcsdk.platform().authUrl({
-            redirectUri: this.config['RC_APP_REDIRECT_URL']
+        var authUri = rcsdk.platform().loginUrl({
+            redirectUri: this.config['MY_APP_REDIRECT_URL']
         })
-        this.loginPopupUri(authUri, this.config['RC_APP_REDIRECT_URL']);
+        this.loginPopupUri(authUri, this.config['MY_APP_REDIRECT_URL']);
     }
     this.loginPopupUri  = function(authUri, redirectUri) {
         console.log('Open login popup window', authUri);
@@ -24,12 +24,12 @@ var OAuthCode = function(rcsdk, config) {
 
         var pollOAuth   = window.setInterval(function() { 
             try {
-                var callbackUrl = win.document.URL
-                console.log(callbackUrl);
-                if (callbackUrl.indexOf(redirectUri) != -1) {
+                var redirectUrl = this.config['MY_APP_REDIRECT_URL'];
+                var callbackUrl = win.document.URL;
+                if (callbackUrl.indexOf(redirectUrl) != -1) {
                     window.clearInterval(pollOAuth);
 
-                    var qs = rcsdk.platform().parseAuthRedirectUrl(callbackUrl);
+                    var qs = rcsdk.platform().parseLoginRedirect(win.location.hash || win.location.search);
                     qs.redirectUri = redirectUri;
 
                     if ('code' in qs) {
@@ -57,9 +57,9 @@ var OAuthCode = function(rcsdk, config) {
 }
 
 var rcsdk = new RingCentral.SDK({
-    server: config['RC_APP_SERVER_URL'],
-    appKey: config['RC_CLIENT_ID'],
-    appSecret: config['RC_CLIENT_SECRET']
+    server: config['RINGCENTRAL_SERVER_URL'],
+    appKey: config['RINGCENTRAL_CLIENT_ID'],
+    appSecret: config['RINGCENTRAL_CLIENT_SECRET']
 });
 
 var oauth = new OAuthCode(rcsdk, config);

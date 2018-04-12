@@ -3,15 +3,16 @@ RingCentral 3-Legged OAuth Demo in JavaScript
 
 ## Overview
 
-This is a quick 3-legged OAuth demo that runs using client-side JavaScript with the [RingCentral JavaScript SDK](https://github.com/ringcentral/ringcentral-js) v2.0.6.
+This is a quick 3-legged OAuth Authorization Code flow demo that runs using client-side JavaScript with the [RingCentral JavaScript SDK](https://github.com/ringcentral/ringcentral-js) v3.x.
 
 ## Installation
 
 *Note*, please make sure `bower` is installed.
 
 ```bash
-$ cd {project_dir}
-$ sh bower_install.sh 
+$ git clone https://github.com/ringcentral-tutorials/oauth-js-demo
+$ cd oauth-js-demo
+$ bower install ringcentral#~3.x --save
 ```
 
 ## Configuration
@@ -27,7 +28,7 @@ $ vi config.js
 In the [Developer Portal](http://developer.ringcentral.com/), ensure the redirect URI in your config file has been entered in your app configuration. By default, the URL is set to the following for this demo:
 
 ```
-http://localhost:8080/callback.html
+http://localhost:8080/oauth2callback.html
 ```
 
 ## Usage
